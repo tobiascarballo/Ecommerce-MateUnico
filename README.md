@@ -40,7 +40,7 @@ Asegúrate de tener instalado:
 2.  Abre la "Query Tool" para esa base de datos.
 3.  Copia y pega el script SQL de `(SQL-principal.sql)` para crear todos los dominios, tablas y restricciones.
 
-### 3. Back-End (API) y Front-End
+### 3. Back-End (API)
 
 En una terminal, navega a la carpeta `back`:
 
@@ -62,8 +62,12 @@ DB_DATABASE=mate-unico
 # 4. Para iniciar el servidor en modo desarrollo
 npm run dev
 
+```
+### 4. Front-End (Cliente)
+
 En otra terminal, navega a la carpeta `front`:
 
+```bash
 # 1. Ir a la carpeta del front-end
 cd front
 
