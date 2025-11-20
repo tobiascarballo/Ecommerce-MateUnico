@@ -1,0 +1,110 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 60px 0; /* Más padding vertical para espacio */
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea los ítems arriba para que las columnas empiecen igual */
+  gap: 40px; /* Espacio entre columnas */
+  position: relative; /* Para las líneas divisorias */
+}
+
+/* Líneas divisorias (esto es un poco de truco CSS) */
+.footer-content::before,
+.footer-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px; /* Grosor de la línea */
+  background-color: #333; /* Color de la línea */
+}
+
+/* Posicionar la primera línea divisoria */
+.footer-content::before {
+  left: 25%; /* Aproximadamente entre la col 1 y 2 */
+}
+
+/* Posicionar la segunda línea divisoria */
+.footer-content::after {
+  right: 25%; /* Aproximadamente entre la col 3 y 4 */
+}
+
+
+.footer-column {
+  flex: 1; /* Distribuye el espacio equitativamente */
+  padding: 0 20px; /* Padding para que el contenido no toque las líneas */
+}
+
+.footer-center-column {
+  flex: 2; /* Esta columna es más ancha para el logo y copyright */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.column-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links, .footer-contact {
+  list-style: none; /* Quita los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link, .footer-contact li {
+  color: #cccccc; /* Un gris más claro para los links */
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block; /* Para que cada link ocupe su propia línea */
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.footer-logo .logo-icon {
+    font-size: 1.5rem; /* Asegura que el emoji/ícono tenga el tamaño correcto */
+}
+
+.copyright {
+  color: #888888;
+  font-size: 0.8rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-center; /* Alinea los iconos a la derecha en su columna */
+}
+
+.social-link {
+  color: #cccccc;
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: #ffffff;
+}

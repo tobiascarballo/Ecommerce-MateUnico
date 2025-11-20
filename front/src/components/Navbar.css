@@ -1,0 +1,98 @@
+/* Fondo negro total */
+.navbar {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px solid #222; /* Una línea sutil abajo */
+}
+
+/* Contenedor flexible */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px; /* Altura fija para alinear todo */
+}
+
+/* --- ZONA IZQUIERDA --- */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espacio entre "Mate Único" y el buscador */
+  flex: 1; /* Ocupa espacio disponible */
+}
+
+.brand-text {
+  color: white;
+  text-decoration: none;
+  font-weight: 700; /* Negrita */
+  font-size: 1.1rem;
+}
+
+/* Buscador estilo "invisible" */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.8; /* Un poco más apagado como en el diseño */
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  width: 100px;
+}
+
+.search-bar input::placeholder {
+  color: #ccc;
+}
+
+/* --- ZONA CENTRO --- */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: 800; /* Extra negrita para el logo */
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+  /* Si tenés la imagen real, reemplazá el emoji en el JSX por <img src={logo} /> 
+     y usá esta clase para darle width: 30px; */
+}
+
+/* --- ZONA DERECHA --- */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+  flex: 1;
+}
+
+.nav-icon-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre bolsa y numero */
+}
+
+.cart-count {
+  font-size: 1rem;
+  font-weight: 400;
+}

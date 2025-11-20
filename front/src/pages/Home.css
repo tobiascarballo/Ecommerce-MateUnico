@@ -1,0 +1,208 @@
+/* --- PARTE 1: HERO STYLES --- */
+
+.hero-section {
+  padding: 60px 20px;
+}
+
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background-color: #fff;
+}
+
+.hero-image-col {
+  flex: 1;
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center 59%;
+}
+
+.hero-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.hero-description {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+.btn-hero {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-hero:hover {
+  background-color: #333;
+}
+
+/* --- PARTE 2: SHOP LAYOUT (FILTROS Y GRILLA) --- */
+
+.shop-section {
+  display: flex;
+  gap: 0; /* Sin espacio extra, el sidebar toca el contenido */
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.shop-content {
+  flex: 1;
+  padding: 40px 60px; /* Padding interno para que los productos respiren */
+  max-width: 1600px;
+}
+
+/* --- GRILLA DE PRODUCTOS --- */
+.products-grid {
+  display: grid;
+  /* Columnas automáticas, mínimo 280px de ancho */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px; /* Espacio generoso entre tarjetas */
+  margin-bottom: 60px;
+}
+
+/* --- TARJETA DE PRODUCTO (CARD) --- */
+.product-card {
+  background-color: white;
+  border: none; /* Sin bordes */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Efecto levantar al pasar el mouse */
+}
+
+/* Contenedor de la imagen */
+.card-image-container {
+  width: 100%;
+  height: 320px; /* Altura fija para uniformidad */
+  position: relative;
+  margin-bottom: 20px;
+  overflow: visible; /* Para que el badge pueda sobresalir si lo movemos */
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Sombra suave en la imagen como en tu diseño */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+}
+
+/* BADGE "NUEVO INGRESO" (Círculo Negro) */
+.badge-new {
+  position: absolute;
+  top: -25px; /* Flota hacia arriba saliendo de la foto */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado horizontal */
+  
+  background-color: #333; /* Gris oscuro casi negro */
+  color: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.1;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- INFORMACIÓN DEL PRODUCTO (TEXTOS) --- */
+.card-info {
+  text-align: center; /* Todo centrado */
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  color: #444;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #000;
+}
+
+/* --- BOTÓN VER MÁS (GENERAL) --- */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-load-more {
+  background-color: #333;
+  color: white;
+  padding: 14px 60px; /* Botón ancho y elegante */
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-load-more:hover {
+  background-color: #000;
+}
+
+/* RESPONSIVE (Celulares) */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-image-col {
+    width: 100%;
+    height: 300px;
+  }
+
+  .shop-section {
+    flex-direction: column; /* Sidebar arriba, productos abajo en celular */
+  }
+  
+  .shop-content {
+    padding: 20px;
+  }
+}

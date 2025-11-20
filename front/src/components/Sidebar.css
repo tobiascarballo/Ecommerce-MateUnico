@@ -1,0 +1,171 @@
+/* front/src/components/Sidebar.css */
+
+/* ESTRUCTURA GENERAL */
+.sidebar {
+  background-color: #f4f4f4;
+  height: 100%; /* Ocupa todo el alto disponible */
+  min-height: 600px;
+  position: relative;
+  transition: width 0.3s ease;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  /* IMPORTANTE: Esto permite que el botón se vea aunque el ancho sea 0 */
+  z-index: 10;
+}
+
+/* ESTADO ABIERTO */
+.sidebar.open {
+  width: 260px;
+  padding: 20px;
+}
+
+/* ESTADO CERRADO */
+.sidebar.closed {
+  width: 0;
+  padding: 0;
+  /* IMPORTANTE: visible para que se vea el botón, pero... */
+  overflow: visible; 
+}
+
+/* ...ocultamos el contenido interno para que no moleste */
+.sidebar.closed .sidebar-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+/* BOTÓN TOGGLE (El semicírculo) */
+.sidebar-toggle {
+  position: absolute;
+  top: 80px;
+  right: -24px; /* Lo saca 24px para afuera */
+  width: 24px;
+  height: 48px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0 24px 24px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20; /* Asegura que esté siempre arriba */
+  outline: none;
+}
+
+.sidebar-toggle:hover {
+  background-color: #000;
+}
+
+/* CONTENIDO INTERNO (Le damos ancho fijo para que no se deforme al cerrar) */
+.sidebar-content {
+  width: 220px; 
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s;
+}
+
+/* --- El resto de tus estilos se mantienen igual --- */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.btn-clean {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.filter-group { margin-bottom: 30px; }
+.filter-group h4 { margin-bottom: 12px; font-weight: 700; }
+
+.row-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.label-text {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.arrow { font-size: 0.7rem; color: #888; }
+
+.sub-menu.level-1 {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.sub-menu.level-2 {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.simple-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.main-item { margin-top: 10px; }
+
+.color-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.color-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.multi-color {
+  background: linear-gradient(45deg, red, blue, green, yellow);
+}
+
+.chk-right { margin-left: auto; }
+
+.btn-apply {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-apply:hover { background-color: #333; }
