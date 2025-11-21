@@ -4,6 +4,9 @@
   color: #ffffff;
   padding: 20px 0;
   border-bottom: 1px solid #222; /* Una línea sutil abajo */
+  position: sticky; /* Hace que se pegue */
+  top: 0;           /* Se pega al borde de arriba (0px) */
+  z-index: 1000;    /* Se asegura de estar por encima de todo el contenido */
 }
 
 /* Contenedor flexible */
@@ -63,10 +66,16 @@
   letter-spacing: -0.5px;
 }
 
-.logo-icon {
-  font-size: 1.5rem;
-  /* Si tenés la imagen real, reemplazá el emoji en el JSX por <img src={logo} /> 
-     y usá esta clase para darle width: 30px; */
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo-img {
+  height: 60px; /*segun el alto de la barra*/
+  width: auto; /*mantiene la proporcion*/
+  object-fit: contain;
 }
 
 /* --- ZONA DERECHA --- */
@@ -95,4 +104,100 @@
 .cart-count {
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* Botón del Menú Hamburguesa (Las dos rayitas) */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espacio entre las rayitas */
+  padding: 5px;
+  margin-right: 15px; /* Separación del buscador */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #8a2be2; /* Color violeta/púrpura de tu imagen */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* El Menú Desplegable (Overlay + Panel) */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+  z-index: 999; /* Por encima de todo */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-panel {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Escondido a la izquierda */
+  width: 250px;
+  height: 100vh;
+  background-color: #000; /* Fondo negro */
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+}
+
+.mobile-menu-overlay.open .mobile-menu-panel {
+  left: 0; /* Se muestra */
+}
+
+/* Botón Cerrar (X) */
+.close-menu {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Enlaces del Menú */
+.mobile-nav {
+  display: flex;
+  flex-direction: column; /* <--- Esto los pone uno abajo del otro */
+  gap: 30px; /* Espacio entre cada enlace */
+  margin-top: 50px; /* Los baja un poco para separarlos de la X */
+}
+
+/* Estilo de cada enlace */
+.mobile-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem; /* Letra más grande para el menú */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #333; /* Línea separadora sutil */
+  padding-bottom: 10px;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.mobile-link:hover {
+  color: #8a2be2; /* Violeta al pasar el mouse */
+  padding-left: 10px; /* Se mueve un poquito a la derecha */
+  border-bottom: 1px solid #8a2be2;
 }

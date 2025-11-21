@@ -69,7 +69,7 @@
 
 .shop-section {
   display: flex;
-  gap: 0; /* Sin espacio extra, el sidebar toca el contenido */
+  gap: 0;
   padding: 0;
   align-items: flex-start;
   width: 100%;
@@ -77,67 +77,61 @@
 
 .shop-content {
   flex: 1;
-  padding: 40px 60px; /* Padding interno para que los productos respiren */
+  padding: 40px 60px;
   max-width: 1600px;
 }
 
-/* --- GRILLA DE PRODUCTOS --- */
+/* GRILLA DE PRODUCTOS */
 .products-grid {
   display: grid;
-  /* Columnas automáticas, mínimo 280px de ancho */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 40px; /* Espacio generoso entre tarjetas */
+  gap: 40px;
   margin-bottom: 60px;
 }
 
-/* --- TARJETA DE PRODUCTO (CARD) --- */
+/* TARJETA DE PRODUCTO (CARD) */
 .product-card {
   background-color: white;
-  border: none; /* Sin bordes */
+  border: none;
   transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
 }
 
 .product-card:hover {
-  transform: translateY(-5px); /* Efecto levantar al pasar el mouse */
+  transform: translateY(-5px);
 }
 
-/* Contenedor de la imagen */
 .card-image-container {
   width: 100%;
-  height: 320px; /* Altura fija para uniformidad */
+  height: 320px;
   position: relative;
   margin-bottom: 20px;
-  overflow: visible; /* Para que el badge pueda sobresalir si lo movemos */
+  overflow: visible;
 }
 
 .product-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Sombra suave en la imagen como en tu diseño */
   box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
 }
 
-/* BADGE "NUEVO INGRESO" (Círculo Negro) */
+/* BADGE "NUEVO INGRESO" */
 .badge-new {
   position: absolute;
-  top: -25px; /* Flota hacia arriba saliendo de la foto */
+  top: -25px;
   left: 50%;
-  transform: translateX(-50%); /* Centrado horizontal */
-  
-  background-color: #333; /* Gris oscuro casi negro */
+  transform: translateX(-50%);
+  background-color: #333;
   color: white;
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.1;
@@ -145,9 +139,8 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* --- INFORMACIÓN DEL PRODUCTO (TEXTOS) --- */
 .card-info {
-  text-align: center; /* Todo centrado */
+  text-align: center;
 }
 
 .card-title {
@@ -164,7 +157,6 @@
   color: #000;
 }
 
-/* --- BOTÓN VER MÁS (GENERAL) --- */
 .load-more-container {
   display: flex;
   justify-content: center;
@@ -174,7 +166,7 @@
 .btn-load-more {
   background-color: #333;
   color: white;
-  padding: 14px 60px; /* Botón ancho y elegante */
+  padding: 14px 60px;
   border: none;
   font-size: 1rem;
   font-weight: 600;
@@ -186,23 +178,285 @@
   background-color: #000;
 }
 
+/* --- PARTE 3: MÁS VENDIDOS --- */
+
+.best-sellers-section {
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background-color: #fff;
+}
+
+.bs-text-col {
+  flex: 1;
+  max-width: 40%;
+}
+
+.bs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.bs-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.bs-cards-container {
+  flex: 1.5;
+  background-color: #9f9f9f;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.bs-card {
+  flex: 1;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bs-card.with-border {
+  border-right: 1px solid #666;
+}
+
+.bs-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.bs-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.bs-img:hover {
+  transform: scale(1.05);
+}
+
+.bs-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.bs-name {
+  color: #333;
+  font-weight: 500;
+}
+
+.bs-price {
+  color: #000;
+  font-weight: 700;
+}
+
+/* --- PARTE 4: CARRUSEL --- */
+
+.carousel-section {
+  width: 100%;
+  margin-top: 80px; 
+  position: relative;
+  /* Eliminamos cualquier borde o sombra externa que cause luz blanca */
+  border: none;
+  box-shadow: none;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  /* Aseguramos fondo blanco detrás por si la imagen no carga */
+  background-color: #fff; 
+}
+
+/* NUEVO: DIFUMINADO SUPERIOR (Blanco a Transparente) */
+.carousel-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Altura del difuminado, ajustala a gusto */
+  background: linear-gradient(to bottom, #ffffff 0%, transparent 100%);
+  z-index: 2; /* Encima de la foto */
+  pointer-events: none; /* Permite hacer clic a través de la sombra */
+}
+
+/* La imagen del carrusel */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+  /* Eliminamos bordes o sombras en la imagen */
+  border: none;
+  outline: none;
+  box-shadow: none; 
+}
+
+/* Botones de Navegación */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  z-index: 5; /* Encima del difuminado */
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* BARRA NEGRA INFERIOR */
+.carousel-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  z-index: 5;
+}
+
+.carousel-bar span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* --- PARTE 5: TE AYUDAMOS --- */
+
+.help-section {
+  padding: 100px 20px;
+  background-color: #fff; /* Fondo blanco limpio */
+}
+
+.help-content {
+  display: flex;
+  align-items: center; /* Centrado vertical */
+  gap: 180px;
+  max-width: 1000px; /* Controla el ancho del bloque */
+  margin: 0 auto;    /* Lo empuja al centro exacto */
+  margin-top: 10px;
+  /* LA LÍNEA VERDE DEL COSTADO */
+  border-left: 5px solid #1a1b1b; /* Podés ajustar este color verde a tu gusto */
+  padding-left: 40px; /* Espacio entre la línea y el texto */
+}
+
+.help-title-col h2 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+  white-space: nowrap; /* Evita que se rompa raro */
+}
+
+.help-text-col p {
+  margin-top: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444; /* Gris oscuro para lectura cómoda */
+  max-width: 500px; /* Para que no se estire infinito */
+}
+
 /* RESPONSIVE (Celulares) */
 @media (max-width: 768px) {
+  .help-content {
+    flex-direction: column; /* Uno abajo del otro */
+    align-items: flex-start;
+    gap: 20px;
+    border-left: 4px solid #4F7867; /* Mantenemos la línea pero más fina */
+    padding-left: 20px;
+  }
+
+  .help-title-col h2 {
+    font-size: 2rem;
+    white-space: normal; /* En celu dejamos que baje */
+  }
+}
+
+/* RESPONSIVE CARRUSEL*/
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: 300px;
+  }
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Hero */
   .hero-wrapper {
     flex-direction: column;
     gap: 30px;
   }
-
   .hero-image-col {
     width: 100%;
     height: 300px;
   }
-
-  .shop-section {
-    flex-direction: column; /* Sidebar arriba, productos abajo en celular */
+  .hero-title {
+    font-size: 2rem;
   }
-  
+
+  /* Shop */
+  .shop-section {
+    flex-direction: column;
+  }
   .shop-content {
     padding: 20px;
+  }
+
+  /* Best Sellers */
+  .best-sellers-section {
+    flex-direction: column;
+  }
+  .bs-text-col {
+    max-width: 100%;
+    text-align: center;
+  }
+  .bs-cards-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .bs-card.with-border {
+    border-right: none;
+    border-bottom: 1px solid #666;
+    padding-bottom: 20px;
   }
 }

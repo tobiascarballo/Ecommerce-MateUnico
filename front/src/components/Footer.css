@@ -1,110 +1,154 @@
+/* front/src/components/Footer.css */
+
 .footer {
   background-color: #000000;
   color: #ffffff;
-  padding: 60px 0; /* Más padding vertical para espacio */
+  padding: 80px 0; /* Un poco más de altura general */
   font-size: 0.9rem;
+  border-top: 1px solid #1a1a1a;
 }
 
 .footer-content {
   display: flex;
+  align-items: stretch; 
   justify-content: space-between;
-  align-items: flex-start; /* Alinea los ítems arriba para que las columnas empiecen igual */
-  gap: 40px; /* Espacio entre columnas */
-  position: relative; /* Para las líneas divisorias */
+  
+  /* CAMBIO 1: Ancho máximo más grande para que se expanda bien */
+  max-width: 1600px; 
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
 }
 
-/* Líneas divisorias (esto es un poco de truco CSS) */
-.footer-content::before,
-.footer-content::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px; /* Grosor de la línea */
-  background-color: #333; /* Color de la línea */
-}
-
-/* Posicionar la primera línea divisoria */
-.footer-content::before {
-  left: 25%; /* Aproximadamente entre la col 1 y 2 */
-}
-
-/* Posicionar la segunda línea divisoria */
-.footer-content::after {
-  right: 25%; /* Aproximadamente entre la col 3 y 4 */
-}
-
-
-.footer-column {
-  flex: 1; /* Distribuye el espacio equitativamente */
-  padding: 0 20px; /* Padding para que el contenido no toque las líneas */
-}
-
-.footer-center-column {
-  flex: 2; /* Esta columna es más ancha para el logo y copyright */
+/* --- BLOQUES GENERALES --- */
+.footer-block {
+  flex: 1;
+  width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 15px;
+  justify-content: flex-start;
+  padding-top: 10px;
 }
 
 .column-title {
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.footer-links, .footer-contact {
-  list-style: none; /* Quita los puntos de la lista */
-  padding: 0;
-  margin: 0;
-}
-
-.footer-link, .footer-contact li {
-  color: #cccccc; /* Un gris más claro para los links */
-  text-decoration: none;
-  margin-bottom: 10px;
-  display: block; /* Para que cada link ocupe su propia línea */
-}
-
-.footer-link:hover {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
   color: #ffffff;
+  text-transform: capitalize;
 }
 
-.footer-logo {
+ul { list-style: none; padding: 0; margin: 0; }
+
+a { color: #cccccc; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #ffffff; }
+
+/* --- BLOQUE 1: IZQUIERDA (Secciones) --- */
+.footer-left {
+  align-items: flex-end; 
+  text-align: right;
+  
+  /* CAMBIO 2: Más distancia entre el texto y la línea divisoria */
+  padding-right: 80px; /* Antes era 40px */
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+/* --- BLOQUE 2: CENTRO (Logo) --- */
+.footer-center {
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center;  /* Centra el texto */
+  
+  /* Las líneas divisorias */
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  
+  padding: 0 80px; /* El espacio lateral */
+}
+
+.footer-logo-container {
+  margin-top: 20px;
+  margin-bottom: auto;
   display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  justify-content: center;;
 }
 
-.footer-logo .logo-icon {
-    font-size: 1.5rem; /* Asegura que el emoji/ícono tenga el tamaño correcto */
+.footer-logo-img {
+  height: 70px; /* Más grande que en el Navbar */
+  width: auto;
+  max-width: 200px; /* Por si el logo es muy ancho */
+  object-fit: contain;
 }
 
 .copyright {
-  color: #888888;
   font-size: 0.8rem;
+  color: #777;
+  margin-top: 80px;
+  white-space: nowrap; /* Evita que se rompa en dos líneas */
+}
+
+/* --- BLOQUE 3: DERECHA (Contacto) --- */
+.footer-right {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 80px; /* Antes era 40px */
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-contact li {
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
 .social-icons {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  justify-content: flex-center; /* Alinea los iconos a la derecha en su columna */
+  gap: 25px;
+  margin-top: 30px;
 }
 
-.social-link {
-  color: #cccccc;
-  transition: color 0.2s;
+.social-link svg {
+  fill: white;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+}
+.social-link svg:hover { transform: scale(1.1); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  /* Ajuste intermedio para pantallas medianas */
+  .footer-left { padding-right: 40px; }
+  .footer-right { padding-left: 40px; }
+  .footer-center { padding: 0 40px; }
 }
 
-.social-link:hover {
-  color: #ffffff;
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  .footer-block {
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+  .footer-center {
+    border: none;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 60px 0;
+    width: 100%;
+  }
+  .footer-left { align-items: center; text-align: center; padding: 0;}
+  .footer-right { align-items: center; text-align: center; padding: 0;}
+  .social-icons { justify-content: center; }
+  .copyright { white-space: normal; }
 }
