@@ -1,0 +1,646 @@
+/* ---------------------------------------------------- */
+/* 1. RESET Y FUENTES (Replicando el estilo de Perfil) */
+/* ---------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #fff; /* El fondo principal es blanco en esta vista */
+}
+
+:root{
+    --bg:#f7f7f7;
+    --card:#ffffff;
+    --muted:#6b6b6b;
+    --accent:#000000;
+    --accent-2:#007bff;
+    --shadow: 0 8px 24px rgba(12,20,30,0.06);
+}
+
+/* ---------------------------------------------------- */
+/* 2. NAVBAR Y PATH (Replicando el estilo de Perfil) */
+/* ---------------------------------------------------- */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 50px;
+    font-weight: 700;
+    font-size: 18px;
+    /* Línea azul sutil arriba que se ve en la captura */
+    border-top: 3px solid #007bff; 
+}
+
+.nav-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.page-path {
+    font-size: 14px;
+    color: #666;
+    padding: 20px 50px 0;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* 3. CONTENIDO PRINCIPAL DEL CARRITO */
+/* ---------------------------------------------------- */
+.carrito-contenedor {
+    max-width: 900px; /* Ancho ajustado al diseño */
+    margin: 0 auto;
+    padding: 0 50px 50px;
+    position: relative;
+    background-color: var(--bg);
+    /* La hoja de la planta de fondo (opcional) */
+    background: url('/path/to/monstera-light.png') no-repeat right bottom;
+    background-size: 250px;
+    background-position-x: right 0px;
+    background-position-y: bottom 50px;
+}
+
+.carrito-titulo {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.carrito-subtitulo {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ---------------------------------------------------- */
+/* 4. PRODUCTOS EN LISTA */
+/* ---------------------------------------------------- */
+.producto-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 18px;
+    margin-bottom: 18px;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.productos-lista {
+    margin-bottom: 40px;
+}
+
+.producto-imagen {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0; /* No permite que la imagen se achique */
+}
+.producto-imagen{
+    border-radius: 10px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.producto-imagen:hover{ transform: scale(1.05); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
+
+.producto-detalle {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-nombre {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.producto-color {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.producto-precio {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px; /* Espacio después del control de cantidad */
+}
+
+/* Control de Cantidad (Mini-Input) */
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    width: 98px; /* más espacio para botones */
+    font-size: 14px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.btn-cantidad {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cantidad-actual {
+    flex-grow: 1;
+    text-align: center;
+    padding: 5px 0;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+}
+.btn-eliminar:hover{ color: #b00000; }
+
+.eliminar-x {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ---------------------------------------------------- */
+/* 5. BOTÓN CONFIRMAR */
+/* ---------------------------------------------------- */
+.confirmar-contenedor {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn-confirmar {
+    background-color: #080808;
+    color: white;
+    border: none;
+    padding: 15px 80px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 900px;
+}
+.btn-confirmar:hover {
+    background-color: #222;
+}
+
+/* --- CARTELL DE SUGERENCIA PREMIUM (SIN BOT) --- */
+.sugerencia-stock-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin: 35px 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border: 1px solid #eef2f6;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInSlide 0.6s ease-out;
+}
+
+.sugerencia-stock-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #007bff, #00c6ff);
+    animation: accentPulse 3s infinite ease-in-out;
+}
+
+@keyframes accentPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.sugerencia-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background: #f0f7ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #007bff;
+    border: 1px solid #d0e7ff;
+}
+
+.icon-info-minimal {
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-info-minimal::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: currentColor;
+    top: 3px;
+    border-radius: 50%;
+}
+
+.icon-info-minimal::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 6px;
+    background: currentColor;
+    bottom: 3px;
+}
+
+.sugerencia-content {
+    flex-grow: 1;
+}
+
+.sugerencia-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sugerencia-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+.sugerencia-texto {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.sugerencia-texto strong {
+    color: #000;
+    font-weight: 600;
+}
+
+.sugerencia-button-wrapper {
+    flex-shrink: 0;
+}
+
+.btn-sugerencia-accion {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.btn-sugerencia-accion:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInSlide {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+.matebot-content {
+    flex-grow: 1;
+}
+
+.matebot-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.matebot-texto {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.matebot-texto strong {
+    color: #111;
+    font-weight: 600;
+}
+
+.btn-matebot-accion {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-matebot-accion:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-matebot-accion i {
+    font-size: 12px;
+}
+
+@keyframes floatIn {
+    0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseAvatar {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(0, 123, 255, 0.25); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15); }
+}
+
+/* Responsividad para MateBot y Cart */
+/* Tablet (900px and below) */
+@media (max-width: 900px) {
+    .cart-container {
+        padding: 20px 20px 60px;
+    }
+    
+    .cart-layout {
+        gap: 25px;
+    }
+    
+    .cart-items-section {
+        flex: 1;
+    }
+    
+    .cart-summary {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 15px 15px 50px;
+    }
+    
+    .cart-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cart-title {
+        font-size: 1.8rem;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cart-item-img {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .cart-item-details {
+        width: 100%;
+    }
+    
+    .cart-summary {
+        width: 100%;
+    }
+    
+    .matebot-asistente-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+    
+    .matebot-avatar-wrapper {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .btn-matebot-accion {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mobile Small (600px and below) */
+@media (max-width: 600px) {
+    .cart-container {
+        padding: 12px 12px 40px;
+    }
+    
+    .cart-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+    }
+    
+    .cart-item-img {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .cart-item-details {
+        width: 100%;
+    }
+    
+    .cart-item-color,
+    .cart-item-grabado,
+    .cart-item-price {
+        font-size: 0.85rem;
+    }
+    
+    .cantidad-box {
+        gap: 8px;
+    }
+    
+    .cantidad-box button {
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .cantidad-box input {
+        width: 40px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-eliminar {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .cart-summary {
+        padding: 16px;
+    }
+    
+    .summary-row {
+        font-size: 0.9rem;
+    }
+    
+    .summary-total {
+        font-size: 1.2rem;
+    }
+    
+    .btn-continuar-comprando,
+    .btn-proceder-pago {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .matebot-asistente-container {
+        padding: 14px;
+    }
+    
+    .matebot-avatar-wrapper {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    
+    .footer-web {
+        padding: 20px 16px;
+    }
+}
+
+/* Extra Small (480px and below) */
+@media (max-width: 480px) {
+    .cart-container {
+        padding: 10px 10px 30px;
+    }
+    
+    .cart-title {
+        font-size: 1.3rem;
+    }
+    
+    .cart-item {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .cart-item-img {
+        height: 120px;
+    }
+    
+    .cart-item-color,
+    .cart-item-grabado,
+    .cart-item-price {
+        font-size: 0.8rem;
+    }
+    
+    .cantidad-box input {
+        width: 35px;
+    }
+    
+    .btn-eliminar {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .cart-summary {
+        padding: 14px;
+    }
+    
+    .summary-row {
+        font-size: 0.85rem;
+    }
+    
+    .summary-total {
+        font-size: 1rem;
+    }
+    
+    .btn-continuar-comprando,
+    .btn-proceder-pago {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Toast básico */
+.cart-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+/* ---------------------------------------------------- */
+/* 6. FOOTER (Replicando el estilo de Perfil) */
+/* ---------------------------------------------------- */
+.footer-web {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 50px;
+    margin-top: 50px;
+    /* Asegúrate de incluir el contenido de 3 columnas del footer aquí */
+}
